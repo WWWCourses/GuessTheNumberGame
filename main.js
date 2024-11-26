@@ -1,10 +1,35 @@
 // Initialize variables
 let maxNumber = 100;
-let machineNumber = Math.floor(Math.random()*maxNumber)+1;
-alert(machineNumber);
+let machineNumber;
 let userGuess = null;
 let userTries = 0;
-let maxTries = 2;
+let maxTries = 10;
+let level;
+
+// Select level
+level = prompt('Select level: Easy (1-10), Normal (1-50), Hard (1-100)')
+switch (level.toLowerCase()) {
+    case 'easy':
+        maxNumber = 10;
+        maxTries = 5;
+        break;
+    case 'normal':
+        maxNumber = 50;
+        maxTries = 7;
+        break;
+    case 'hard':
+        maxNumber = 100;
+        maxTries = 10;
+        break;
+    default: // Easy
+        maxNumber = 10;
+        maxTries = 5;
+        break;
+}
+
+// Generate machine number
+machineNumber= Math.floor(Math.random()*maxNumber)+1;
+alert(machineNumber);
 
 
 // Main game logic
