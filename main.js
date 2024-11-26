@@ -7,7 +7,6 @@ let userTries = 0;
 let maxTries = 2;
 
 
-
 // Main game logic
 do{
     userGuess = parseInt( prompt(`Enter a number (1..${maxNumber})`) );
@@ -17,6 +16,8 @@ do{
         alert(`Моля въведете валидно число между 1 и ${maxNumber}!`);
         continue;
     }
+
+    userTries++;
 
     // compare user guess with machineNumber and give feadback
     if(userGuess>machineNumber){
@@ -30,9 +31,12 @@ do{
         alert('Unexpected case')
     }
 
-    userTries++;
+
     if(userTries===maxTries){
         alert(`Game Over! My number was ${machineNumber}`);
         break;
     }
 } while (userGuess!==machineNumber);
+alert(`You tried ${userTries} times!`)
+
+
