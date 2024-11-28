@@ -5,6 +5,7 @@ let userGuess = null;
 let userTries = 0;
 let maxTries = 10;
 let level;
+let userHistoryNumbers = [];
 
 // Select level
 level = prompt('Select level: Easy (1-10), Normal (1-50), Hard (1-100)')
@@ -34,7 +35,9 @@ alert(machineNumber);
 
 // Main game logic
 do{
-    userGuess = parseInt( prompt(`Enter a number (1..${maxNumber})`) );
+    userGuess = parseInt(
+        prompt(`Enter a number (1..${maxNumber})\nHistory: ${userHistoryNumbers.join(',')}`)
+    );
 
     // validate user guess (must be number in [1..maxNumber])
     if( isNaN(userGuess) || userGuess < 1 || userGuess > maxNumber ) {
@@ -43,6 +46,7 @@ do{
     }
 
     userTries++;
+    userHistoryNumbers.push(userGuess);
 
     // compare user guess with machineNumber and give feadback
     if(userGuess>machineNumber){
